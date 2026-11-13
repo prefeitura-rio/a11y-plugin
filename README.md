@@ -229,6 +229,14 @@ Content-Security-Policy:
 
 > O plugin injeta estilos via `document.createElement('style')` em runtime, por isso o `unsafe-inline`. Se o sistema usar CSP baseado em nonce, será necessário adaptar o plugin para aceitar `A11yPlugin.init({ nonce: 'SEU_NONCE' })` — abrir issue se necessário.
 
+### CSP vs SRI
+
+A proteção atual é via **CSP** — o browser só executa scripts carregados de origens autorizadas (`storage.googleapis.com`). Isso impede que scripts de origens desconhecidas sejam injetados na página.
+
+**SRI (Subresource Integrity)** iria além: verificaria a integridade do arquivo via hash (`integrity="sha384-..."`), rejeitando o script caso ele seja adulterado mesmo dentro da origem autorizada. Não está implementado aqui porque o hash muda a cada build — quem embute o atributo `integrity` no HTML precisaria atualizá-lo a cada deploy do plugin, o que é impraticável sem um processo de release versionado.
+
+Se o projeto evoluir para releases versionadas com URLs fixas (ex: `.../a11y-plugin@1.2.0/a11y-plugin.min.js`), SRI passa a fazer sentido e pode ser adicionado.
+
 ---
 
 ## Assets no bucket
