@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teste — Plugin de Acessibilidade Pref Rio</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+    h1 { color: #13335a; }
+    .alert-success { background: var(--success, #00a63e); color: white; padding: 10px 16px; border-radius: 8px; margin: 8px 0; }
+    .alert-error { background: var(--destructive, #fb2c36); color: white; padding: 10px 16px; border-radius: 8px; margin: 8px 0; }
+    .btn { background: var(--primary, #13335a); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin: 4px; }
+    .card { border: 1px solid #e4e4e7; border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .card img { max-width: 200px; border-radius: 8px; margin: 8px; }
+    a { color: var(--primary, #13335a); }
+  </style>
+</head>
+<body>
+  <h1>Prefeitura do Rio — Teste de Acessibilidade</h1>
+  <p>Esta página testa o plugin de acessibilidade standalone. Use o botão flutuante à direita.</p>
+
+  <div class="card">
+    <h2>Tipografia</h2>
+    <p>Texto padrão para testar tamanho de fonte, espaçamento e fonte para dislexia.</p>
+    <ul>
+      <li>Item de lista um — <a href="#">link de exemplo</a></li>
+      <li>Item de lista dois com texto mais longo para testar quebra de linha</li>
+      <li>Item de lista três</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Cores e Contraste</h2>
+    <div class="alert-success">Sucesso — operação realizada com êxito</div>
+    <div class="alert-error">Erro — algo deu errado</div>
+    <button class="btn">Botão primário</button>
+    <button class="btn" style="background: var(--success, #00a63e);">Confirmar</button>
+    <button class="btn" style="background: var(--destructive, #fb2c36);">Cancelar</button>
+  </div>
+
+  <div class="card">
+    <h2>Imagens</h2>
+    <img src="https://via.placeholder.com/200x150" alt="Imagem de exemplo 1" />
+    <img src="https://via.placeholder.com/200x150/13335a/ffffff?text=Pref+Rio" alt="Imagem de exemplo 2" />
+  </div>
+
+  <!-- VLibras -->
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+  </div>
+
+  <!-- Plugin de acessibilidade -->
+  <script src="./dist/a11y-plugin.js"></script>
+  <script>A11yPlugin.init()</script>
+</body>
+</html>

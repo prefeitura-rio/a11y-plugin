@@ -1,0 +1,17 @@
+{
+  "name": "pref-rio-a11y",
+  "version": "1.0.0",
+  "description": "Plugin de acessibilidade da Prefeitura do Rio — standalone para CDN",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --format=iife --global-name=A11yPlugin --outfile=dist/a11y-plugin.js",
+    "build:min": "esbuild src/index.ts --bundle --format=iife --global-name=A11yPlugin --minify --outfile=dist/a11y-plugin.min.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.0"
+  },
+  "allowScripts": {
+    "esbuild@0.24.2": true
+  }
+}
